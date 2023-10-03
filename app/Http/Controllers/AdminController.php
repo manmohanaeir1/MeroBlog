@@ -29,9 +29,28 @@ class AdminController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function storeProfile(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->username = $request->username;
+
+        // for image 
+        if ($request->file('profile_image')) {
+            $file = $request->file('profile_image');
+            @unlink(public_path('upload/user_images/' . $data->image));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/user_images'), $filename);
+            $data['profile_image'] = $filename;
+        }
+        $data->save();
+            return redirect()->route('admin.profile')->with('success', 'Profile Updated Successfully');
+
+
+
+
     }
 
     /**
@@ -45,9 +64,12 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editProfile()
     {
-        //
+        $id = Auth::user()->id;
+        $editData = User::find($id);
+
+        return view('admin.admin_profile_edit', compact('editData'));
     }
 
     /**
