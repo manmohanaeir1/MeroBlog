@@ -17,6 +17,13 @@
                 <i class="ri-menu-2-line align-middle"></i>
             </button>
 
+            @php
+            $id = Auth::user()->id;
+            $adminData= App\Models\User::find($id);
+                
+
+            @endphp
+
             <!-- App Search-->
             <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
@@ -259,9 +266,9 @@
             <div class="dropdown d-inline-block user-dropdown">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{asset('backend/assets/images/users/avatar-1.jpg')}}"
+                    <img class="rounded-circle header-profile-user" src="{{(!empty($adminData->profile_image)) ? url('upload/user_images/' . $adminData->profile_image) : url('upload/user_images/no_image.jpg')}}"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">Julia</span>
+                    <span class="d-none d-xl-inline-block ms-1">{{$adminData->name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">

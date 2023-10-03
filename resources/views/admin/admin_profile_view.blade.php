@@ -10,7 +10,7 @@
                     <br>
                     <center>
 
-                        <img class="rounded-circle avatar-xl" src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
+                        <img class="rounded-circle avatar-xl" src="{{(!empty($adminData->profile_image)) ? url('upload/user_images/' . $adminData->profile_image) : url('upload/user_images/no_image.jpg')}}" alt="Card image cap">
                     </center>
                     <div class="card-body">
                         <h4 class="card-title">Name : {{ $adminData->name}}</h4>
