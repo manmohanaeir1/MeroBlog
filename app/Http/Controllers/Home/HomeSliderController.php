@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Home;
 
-use App\Models\HomeSlider;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\HomeSlider;
 
 class HomeSliderController extends Controller
 {
@@ -12,7 +13,9 @@ class HomeSliderController extends Controller
      */
     public function index()
     {
-        //
+        $homeSlide = HomeSlider::find(1);
+        return view('admin.home_slide.home_slide_all', compact('homeSlide'));
+       
     }
 
     /**
@@ -34,7 +37,7 @@ class HomeSliderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HomeSlider $homeSlider)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +45,7 @@ class HomeSliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(HomeSlider $homeSlider)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +53,7 @@ class HomeSliderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, HomeSlider $homeSlider)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +61,7 @@ class HomeSliderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(HomeSlider $homeSlider)
+    public function destroy(string $id)
     {
         //
     }

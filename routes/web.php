@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Home\HomeSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,12 +40,15 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/profile', 'profile')->name('admin.profile');
     Route::get('/edit/profile', 'editProfile')->name('edit.profile');
     Route::post('/store/profile', 'storeProfile')->name('store.profile');
-
-
-    
-
-
 });
+
+// home slider routes
+Route::controller(HomeSliderController::class)->group(function () {
+    Route::get('/home/slider', 'index')->name('home.slider');
+  
+   
+});
+
 
 
 

@@ -10,10 +10,10 @@ class HomeSlider extends Model
     use HasFactory;
     protected $garded = []; 
 
-    // protected $fillable = [
-    //     'title',
-    //     'sub_title',
-    //     'home_slider',
-    //     'Video_url',
-    // ];
+    protected $fillable = [
+        'title',
+        'sub_title',
+        'home_slider',
+        'Video_url',
+    ];
 }
