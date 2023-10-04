@@ -7,8 +7,7 @@
                     <div class="menu__wrap">
                         <nav class="menu__nav">
                             <div class="logo">
-                                <a href="index.html" class="logo__black"><img src="{{asset('frontend/assets/img/logo/logo_black.png')}}" alt=""></a>
-                                <a href="index.html" class="logo__white"><img src="{{asset('frontend/assets/img/logo/logo_white.png')}}" alt=""></a>
+                                <a href="index.html" class="logo__black"><img src="{{asset('logo/logo.png')}}" alt="" height="60"></a>
                             </div>
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">
@@ -40,8 +39,7 @@
                         <nav class="menu__box">
                             <div class="close__btn"><i class="fal fa-times"></i></div>
                             <div class="nav-logo">
-                                <a href="index.html" class="logo__black"><img src="{{asset('frontend/assets/img/logo/logo_black.png')}}" alt=""></a>
-                                <a href="index.html" class="logo__white"><img src="{{asset('frontend/assets/img/logo/logo_white.png')}}" alt=""></a>
+                                <a href="index.html" class="logo__black"><img src="{{asset('frontend/assets/images/logo.png')}}" alt=""></a>
                             </div>
                             <div class="menu__outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
