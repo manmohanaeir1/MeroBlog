@@ -45,6 +45,11 @@ Route::controller(AdminController::class)->group(function () {
 // home slider routes
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/slider', 'index')->name('home.slider');
+    Route::get('/create/slider', 'create')->name('create.slider');
+    Route::post('/store/slider', 'store')->name('store.slider');
+    Route::get('/edit/slider/{id}', 'edit')->name('edit.slider');
+    Route::post('/update/slider', 'update')->name('update.slider');
+
   
    
 });

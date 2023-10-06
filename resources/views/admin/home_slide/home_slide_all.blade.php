@@ -12,8 +12,11 @@
 
                         <h4 class="card-title">Home Slide Page  </h4>
                         
-                        <form action="{{route('store.profile')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('update.slider')}}" method="POST" enctype="multipart/form-data">
                             @csrf
+
+                                <input type="hidden" name="id" value="{{ $homeSlide->id}}">
+
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
@@ -38,6 +41,9 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> Slider Image</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="file"  id="home_slider" name="home_slider">
+                                  
+                                    <span class="text-danger">photo must be 636 * 852 px </span>
+
                                 </div>
                             </div>
 
