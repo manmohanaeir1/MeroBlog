@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\FrontendController;
 use App\Models\About;
 
 /*
@@ -33,6 +34,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// frontend all routes  with group
+// admin all routes logout 
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/home', 'home')->name('frontend.home');
+    Route::get('/about', 'about')->name('frontend.about');
+   
+});
+
 
 
 

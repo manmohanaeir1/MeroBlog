@@ -65,7 +65,7 @@ class AboutController extends Controller
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             // auto make image ffolder 
 
-            Image::make($image)->resize(636,852)->save('upload/about/'.$name_gen);
+            Image::make($image)->resize(523,605)->save('upload/about/'.$name_gen);
 
             $save_url = 'upload/about/'.$name_gen;
              

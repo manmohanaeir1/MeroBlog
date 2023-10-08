@@ -19,6 +19,7 @@ class About extends Model
         'order',
         'status'
     ];
+    
        
     
 }
