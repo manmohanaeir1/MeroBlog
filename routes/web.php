@@ -51,8 +51,7 @@ Route::controller(HomeSliderController::class)->group(function () {
     Route::post('/store/slider', 'store')->name('store.slider');
     Route::get('/edit/slider/{id}', 'edit')->name('edit.slider');
     Route::post('/update/slider', 'update')->name('update.slider');
-
-  
+ 
    
 });
 
