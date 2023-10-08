@@ -59,8 +59,8 @@ Route::controller(HomeSliderController::class)->group(function () {
 //  about routes
 Route::controller(AboutController::class)->group(function () {
     Route::get('/page/about', 'index')->name('index.about');
-    Route::get('/page/create/about', 'create')->name('create.about');
-    Route::post('/page/store/about', 'store')->name('store.about');
+    Route::get('/create/about', 'create')->name('create.about');
+    Route::post('/store/about', 'store')->name('store.about');
   
    
 });

@@ -9,5 +9,17 @@ class About extends Model
 {
     use HasFactory;
     protected $garded = [];
+
+    protected $fillable = [
+        'title',
+        'sub_title',
+        'short_description',
+        'long_description',
+        'about_image',
+        'order',
+        'status'
+    ];
+       
     
 }
+
