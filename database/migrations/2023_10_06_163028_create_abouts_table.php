@@ -18,6 +18,19 @@ return new class extends Migration
             $table->text('short_description')->nullable();
             $table->text('long_description')->nullable();
             $table->string('about_image')->nullable();
+           
+            $table->integer('order')->nullable();
+            $table->boolean('status')->default(1);
+
+
+            $table->string('featured_image')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_author')->nullable();
+
+            $table->string('meta_tag')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keywords')->nullable();
+            
             $table->timestamps();
         });
     }

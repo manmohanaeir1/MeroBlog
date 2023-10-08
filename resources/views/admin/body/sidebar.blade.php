@@ -26,7 +26,7 @@
                 <li class="menu-title">Menu</li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="{{route('dashboard')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
                         <span>Dashboard</span>
                     </a>
@@ -37,15 +37,26 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                        
-                        <i class="ri-store-2-line"></i>
+                        <i class="ri-slideshow-fill"></i>
                         <span>Home Slide Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('home.slider')}}">Home Slide</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
 
 
                     </ul>
+                </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                       
+                        <i class="ri-edit-circle-fill"></i>
+                        <span>About Page Setup</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('index.about')}}">About Page</a></li>
+
+
+                    </ul>   
                 </li>
 
                 

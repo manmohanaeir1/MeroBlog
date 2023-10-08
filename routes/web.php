@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\AboutController;
+use App\Models\About;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +55,19 @@ Route::controller(HomeSliderController::class)->group(function () {
   
    
 });
+
+//  about routes
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/page/about', 'index')->name('index.about');
+    Route::get('/page/create/about', 'create')->name('create.about');
+    Route::post('/page/store/about', 'store')->name('store.about');
+  
+   
+});
+
+
+
+
 
 
 
