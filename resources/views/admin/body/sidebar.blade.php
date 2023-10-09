@@ -54,9 +54,10 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('index.about')}}">About Page</a></li>
-
-
-                    </ul>   
+                    </ul> 
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('create.about')}}">Add Content</a></li>
+                    </ul>    
                 </li>
 
                 

@@ -65,6 +65,12 @@
         <script src="{{asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
         <script src="{{asset('backend/assets/js/pages/dashboard.init.js')}}"></script>
+       
+        <!-- Responsive Table js -->
+        <script src="{{asset('backend/assets/libs/admin-resources/rwd-table/rwd-table.min.js')}}"></script>
+
+        <!-- Init js -->
+        <script src="{{asset('backend/assets/js/pages/table-responsive.init.js')}}"></script>
 
         <!-- App js -->
         <script src="{{asset('backend/assets/js/app.js')}}"></script>

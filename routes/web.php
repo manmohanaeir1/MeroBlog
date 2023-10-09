@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/home', 'home')->name('frontend.home');
     Route::get('/about', 'about')->name('frontend.about');
+    
    
 });
 
@@ -70,6 +71,11 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/page/about', 'index')->name('index.about');
     Route::get('/create/about', 'create')->name('create.about');
     Route::post('/store/about', 'store')->name('store.about');
+    Route::get('/edit/about/{id}', 'edit')->name('edit.about');
+    Route::post('/update/about/{id}', 'update')->name('update.about'); 
+    Route::get('/delete/about', 'destroy')->name('delete.about');
+    
+    
   
    
 });

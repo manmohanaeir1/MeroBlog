@@ -1,10 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-@php
-$order = DB::table('abouts')->max('order');
-$order = $order+10;
-@endphp
 
 
 
@@ -20,8 +16,8 @@ $order = $order+10;
                         <h4 class="card-title">Edit About Page  </h4>
 
                     
-                                                
-                        <form action="{{route('update.about') }}" method="POST" enctype="multipart/form-data">
+                            
+                        <form action="{{route('update.about',$about->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                               
@@ -29,7 +25,7 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text"  id="title" name="title" value="{{old('title')}}" >
+                                    <input class="form-control" type="text"  id="title" name="title" value="{{$about->title}}" >
                                    
                                         @error('title')
                                         <span class="text-danger">{{$message}}</span>
@@ -41,7 +37,7 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Sub Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text"  id="sub_title" name="sub_title" value="{{('sub_title')}}" required>
+                                    <input class="form-control" type="text"  id="sub_title" name="sub_title" value="{{$about->sub_title}}" required>
                                 </div>
                                 @error('sub_title')
                                 <span class="text-danger">{{$message}}</span>
@@ -50,8 +46,8 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Short Description</label>
                                 <div class="col-sm-10">
-                                    <textarea required class="form-control" name="short_description"  id="" cols="3"  rows="10"  value="{{old('short_description')}}" >
-                                       
+                                    <textarea required class="form-control" name="short_description"  id="" cols="3"  rows="10"  value="" >
+                                        {{$about->short_description}}
                                     </textarea>
                                     @error('short_description')
                                     <span class="text-danger">{{$message}}</span>
@@ -62,7 +58,8 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>
                                 <div class="col-sm-10">
-                                    <textarea id="elm1" name="long_description" required value="{{old('long_description')}}"> 
+                                    <textarea id="elm1" name="long_description" required > 
+                                        {{$about->long_description}}
                                     </textarea>   
                                     @error('long_description')
                                     <span class="text-danger">{{$message}}</span>
@@ -75,7 +72,9 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> About Image</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="file"  id="about_image" name="about_image" required>
+                                    
+                                    <img src="{{asset($about->about_image)}}" style="height: 100px; width: 100px;">
+                                    <input type="file" class="form-control" name="about_image" id="about_image" value="{{$about->about_image}}" >
                                   
                                     <span class="text-danger">photo must be  px </span>
 
@@ -94,7 +93,7 @@ $order = $order+10;
 
                                 <div class="col-sm-10">
                                     <img id="showImage" class="rounded avatar-lg" src="{{(!empty($about->about_image)) ? url('upload/about_image/' . $about->about_image) : url('upload/user_images/no_image.jpg')}}" alt="Card image cap" alt="Card image cap">
-
+                                    
                                 </div>
                             </div>  
 
@@ -103,7 +102,7 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> Order</label>
                                 <div class="col-sm-10">
-                                  <input type="number" class="form-control" name="order" id="order" required value="{{$order}}">
+                                  <input type="number" class="form-control" name="order" id="order" required value="{{$about->order}}">
 
                                 </div>
                             </div>
@@ -113,10 +112,12 @@ $order = $order+10;
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> Status</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" name="status" required value="{{old('status')}}">
+                                    <select class="form-control" name="status" required value="{{$about->status}}">
                                         <option>Please Select Status</option>
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
+                                        <option value="1" {{$about->status == 1 ? 'selected':''}} >Active</option>
+                                        <option value="0" {{$about->status == 0 ? 'selected':''}} >Inactive</option>
+
+                                        
                                     </select>
                                 </div>
                                 @error('status')
@@ -124,7 +125,7 @@ $order = $order+10;
                                 @enderror
                             </div>
 
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Save" >
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update" >
                         </form>
                       
                     </div>

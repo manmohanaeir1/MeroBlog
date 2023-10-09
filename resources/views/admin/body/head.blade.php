@@ -13,7 +13,11 @@
 
     <!-- DataTables -->
     <link href="{{asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-
+   
+    <!-- Responsive Table css -->
+    
+    <link href="{{asset('backend/assets/libs/admin-resources/rwd-table/rwd-table.min.css')}}" rel="stylesheet" type="text/css" />
+        
     <!-- Responsive datatable examples -->
     <link href="{{asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />  
 
