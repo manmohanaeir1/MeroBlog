@@ -49,11 +49,12 @@
                                                 </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach($abouts as $about)
                                                
                                                     
 
                                                     <tr>
-                                                        @foreach($abouts as $about)
+                                                       
                                                         <td><span class="co-name">{{$about->title}}</span></td>
                                                         
                                                         <td>{{ Str::limit($about->sub_title, 5, '....') }}</td>
@@ -76,10 +77,11 @@
                                                             @else
                                                             <a href="" class="btn btn-danger btn-sm">Inactive</i></a>
                                                             @endif 
-                                                        @endforeach 
-    
+                                          
                                                        
                                                     </tr>
+                                                    @endforeach 
+    
                                                     
                                                    
                                                

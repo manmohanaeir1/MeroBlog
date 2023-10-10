@@ -17,70 +17,52 @@
 
                     
                             
-                        <form action="{{route('update.about',$about->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('update.about') }}" method="POST" enctype="multipart/form-data">
                             @csrf
 
-                              
+                             
+                                <input type="hidden" name="id" value="{{ $about->id}}">
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text"  id="title" name="title" value="{{$about->title}}" >
-                                   
-                                        @error('title')
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    
-                                   
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Sub Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text"  id="sub_title" name="sub_title" value="{{$about->sub_title}}" required>
+                                    <input class="form-control" type="text"  id="sub_title" name="sub_title" value="{{$about->sub_title}}" >
                                 </div>
-                                @error('sub_title')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
+                               
                             </div>
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Short Description</label>
                                 <div class="col-sm-10">
-                                    <textarea required class="form-control" name="short_description"  id="" cols="3"  rows="10"  value="" >
+                                    <textarea  class="form-control" name="short_description"  id="" cols="3"  rows="10"  value="" >
                                         {{$about->short_description}}
                                     </textarea>
-                                    @error('short_description')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                    
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>
                                 <div class="col-sm-10">
-                                    <textarea id="elm1" name="long_description" required > 
+                                    <textarea id="elm1" name="long_description"  > 
                                         {{$about->long_description}}
                                     </textarea>   
-                                    @error('long_description')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
+                                    
                                 </div>
                             </div>
 
-           
-                            
                             <div class="row mb-3">
-                                <label for="example-text-input" class="col-sm-2 col-form-label"> About Image</label>
+                                <label for="example-text-input" class="col-sm-2 col-form-label"> Slider Image</label>
                                 <div class="col-sm-10">
-                                    
-                                    <img src="{{asset($about->about_image)}}" style="height: 100px; width: 100px;">
-                                    <input type="file" class="form-control" name="about_image" id="about_image" value="{{$about->about_image}}" >
+                                    <input class="form-control" type="file"  id="about_image" name="about_image">
                                   
-                                    <span class="text-danger">photo must be  px </span>
+                                    <span class="text-danger">photo must be 636 * 852 px </span>
 
-                                    @error('about_image')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
                                 </div>
                             </div>
 
@@ -92,17 +74,27 @@
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
 
                                 <div class="col-sm-10">
-                                    <img id="showImage" class="rounded avatar-lg" src="{{(!empty($about->about_image)) ? url('upload/about_image/' . $about->about_image) : url('upload/user_images/no_image.jpg')}}" alt="Card image cap" alt="Card image cap">
-                                    
+
+                                    <img src="{{asset($about->about_image)}}" class="rounded avatar-lg" alt="" id="showImage" style="width: 100px; height: 100px;">
+
+
                                 </div>
                             </div>  
+                            
+
+           
+                            
+                          
+
+
+              
 
                             {{-- order --}}
 
                             <div class="row mb-3">
                                 <label for="example-text-input" class="col-sm-2 col-form-label"> Order</label>
                                 <div class="col-sm-10">
-                                  <input type="number" class="form-control" name="order" id="order" required value="{{$about->order}}">
+                                  <input type="number" class="form-control" name="order" id="order"  value="{{$about->order}}">
 
                                 </div>
                             </div>
@@ -120,9 +112,7 @@
                                         
                                     </select>
                                 </div>
-                                @error('status')
-                                <span class="text-danger">{{$message}}</span>
-                                @enderror
+                               
                             </div>
 
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Update" >

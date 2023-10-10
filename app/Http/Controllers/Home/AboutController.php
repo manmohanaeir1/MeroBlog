@@ -94,7 +94,7 @@ class AboutController extends Controller
            
         $about->save();
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('index.about')->with($notification);
     }
     /**
      * Display the specified resource.
@@ -116,69 +116,68 @@ class AboutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $data = $request->all();
-
-        $rules =    [
-            'title' => 'required | max:255  ',
-            'sub_title' => 'required | max:255  ',
-            'short_description' => 'required  ',
-            'long_description' => 'required  ',
-            'about_image' => 'required | mimes:jpg,jpeg,png,gif | max:2000 ',
-        ];
-
-        $msg = [
-            'title.required' => 'Title is required',
-            'sub_title.required' => 'Sub Title is required',
-            'short_description.required' => 'Short Description is required',
-            'long_description.required' => 'Long Description is required',
-            'about_image.required' => 'Image is required',
-            'about_image.mimes' => 'Image type is required',
-        ];
-
-       $this->validate($request, $rules,  $msg);
-        
-        $about = About::findOrFail($id)->update($data);
+        // Retrieve the 'about' entity
        
+    $id = $request->id;
+    $data = $request->all();
+            // Validate the request
+            $rules =    [
+                'title' => 'required | max:255  ',
+                'sub_title' => 'required | max:255  ',
+                'short_description' => 'required  ',
+                'long_description' => 'required  ',
+                'about_image' => '  mimes:jpg,jpeg,png,gif | max:2000 ',
+            ];
 
-        if($request->file('about_image')){
-            $image = $request->file('about_image');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            // auto make image ffolder 
+            $msg = [
+                'title.required' => 'Title is required',
+                'sub_title.required' => 'Sub Title is required',
+                'short_description.required' => 'Short Description is required',
+                'long_description.required' => 'Long Description is required',
+                'about_image.mimes' => 'Image type is required',
+            ];
 
-            Image::make($image)->resize(523,605)->save('upload/about/'.$name_gen);
+              $this->validate($request, $rules, $msg);
+            $about = About::find($id);
+            // Update the entity with the validated data
+            $about->update($data);
 
-            $save_url = 'upload/about/'.$name_gen;
-             
-            $about->about_image = $save_url;
-            $about->save(); 
+            // Store the entity
+            $about->save();
 
-            
+
+            if($request->file('about_image')){
+                $image = $request->file('about_image');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                // auto make image ffolder 
+
+                Image::make($image)->resize(523,605)->save('upload/about/'.$name_gen);
+
+                $save_url = 'upload/about/'.$name_gen;
+                 
+                $about->about_image = $save_url;
+        
+            }
             $notification = array(  
-                'message' => 'About page content with image updated Successfully',
+                'message' => 'About page content with image created Successfully',
                 'alert-type' => 'success'
             );
 
-           
-        }
+            // for order
 
-        // for order 
-       
-        // for status  from about model
-        if($request->status){
-            $about->status = 1;
-        }else{
-            $about->status = 0;
-        }
+            // for status  from about model
+            if($request->status){
+                $about->status = 1;
+            }else{
+                $about->status = 0;
+            }
 
-           
-      
-
-        return redirect()->back()->with($notification);
-           
-
+            $about->save(); 
+            return redirect()->route('index.about')->with($notification);   
     }
+       
 
     /**
      * Remove the specified resource from storage.
