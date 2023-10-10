@@ -152,6 +152,7 @@ class AboutController extends Controller
                 $image = $request->file('about_image');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 // auto make image ffolder 
+                unlink($about->about_image);
 
                 Image::make($image)->resize(523,605)->save('upload/about/'.$name_gen);
 
@@ -183,7 +184,15 @@ class AboutController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        //
+    {   
+        $about = About::find($id);
+        unlink($about->about_image);
+        $about->delete();
+        $notification = array(  
+            'message' => 'About page content with image deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('index.about')->with($notification);
+        
     }
 }

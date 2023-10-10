@@ -71,7 +71,12 @@
                                                         </td> 
                                                         <td>
                                                             <a href="{{route('edit.about',$about->id)}}" class="btn btn-info btn-sm"><i class="fa fa-pen"></i></a>
-                                                            <a href="{{route('delete.about',$about->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fa fa-trash"></i></a>
+                                                            <form action="{{route('delete.about',$about->id)}}" method="POST" style="display: inline-block;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete?')"><i class="fa fa-trash"></i></button>
+                                                            </form>
+
                                                             @if($about->status == 1)
                                                             <a href="" class="btn btn-success btn-sm">Active</a>
                                                             @else

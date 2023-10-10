@@ -73,7 +73,7 @@ Route::controller(AboutController::class)->group(function () {
     Route::post('/store/about', 'store')->name('store.about');
     Route::get('/edit/about/{id}', 'edit')->name('edit.about');
     Route::post('/update/about', 'update')->name('update.about'); 
-    Route::get('/delete/about', 'destroy')->name('delete.about');
+    Route::delete('/delete/about/{id}', 'destroy')->name('delete.about');
     
     
   
