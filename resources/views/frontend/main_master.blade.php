@@ -27,6 +27,10 @@
         </main>
         <!-- main-area-end -->
 
+         <!-- contact-area -->
+            @include('frontend.body.contact_area')
+         <!-- contact-area-end -->
+
 
         @include('frontend.body.footer')
        

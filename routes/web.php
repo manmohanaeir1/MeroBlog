@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\FrontendController;
+
+use App\Http\Controllers\Admin\ContactController;
 use App\Models\About;
 
 /*
@@ -40,6 +42,11 @@ Route::middleware('auth')->group(function () {
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/home', 'home')->name('frontend.home');
     Route::get('/about', 'about')->name('frontend.about');
+
+
+    // for contace register
+    
+    Route::post('/contact_register', 'contact_register')->name('contact.register');
     
    
 });
@@ -74,12 +81,17 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/edit/about/{id}', 'edit')->name('edit.about');
     Route::post('/update/about', 'update')->name('update.about'); 
     Route::delete('/delete/about/{id}', 'destroy')->name('delete.about');
-    
-    
-  
-   
-});
 
+ 
+   });
+
+// for contact 
+
+Route::controller(ContactController ::class)->group(function () {
+    Route::get('/page/contact', 'index')->name('index.contact');
+    Route::delete('/delete/contact/{id}', 'destroy')->name('delete.contact');
+
+});
 
 
 

@@ -152,7 +152,7 @@ class AboutController extends Controller
                 $image = $request->file('about_image');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 // auto make image ffolder 
-                unlink($about->about_image);
+               
 
                 Image::make($image)->resize(523,605)->save('upload/about/'.$name_gen);
 

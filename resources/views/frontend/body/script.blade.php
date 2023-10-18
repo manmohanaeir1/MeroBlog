@@ -10,3 +10,6 @@
 <script src="{{asset('frontend/assets/js/wow.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/plugins.js')}}"></script>
 <script src="{{asset('frontend/assets/js/main.js')}}"></script>
+
+        <!-- validate  -->
+        <script src="{{asset('frontend/assets/js/validate.min.js')}}"></script>

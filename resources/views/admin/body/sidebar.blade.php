@@ -32,6 +32,14 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{route('index.contact')}}" class="waves-effect">
+                        <i class="ri-contact"></i><span class="badge rounded-pill bg-success float-end">5</span>
+                        <span>Contact</span>
+                    </a>
+                </li>
+
+
                
     
                 <li>
