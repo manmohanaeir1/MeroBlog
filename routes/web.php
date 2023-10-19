@@ -42,6 +42,13 @@ Route::middleware('auth')->group(function () {
 Route::controller(FrontendController::class)->group(function () {
     Route::get('/home', 'home')->name('frontend.home');
     Route::get('/about', 'about')->name('frontend.about');
+    Route::get('/service', 'service')->name('frontend.service');
+    Route::get('/portfolio', 'portfolio')->name('frontend.portfolio');
+    Route::get('/blog', 'blog')->name('frontend.blog');
+    Route::get('/contact', 'contact')->name('frontend.contact');
+   
+
+
 
 
     // for contace register

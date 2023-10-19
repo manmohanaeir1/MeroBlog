@@ -20,6 +20,31 @@ class FrontendController extends Controller
         return view('frontend.about_page', compact('about'));
     }
 
+    public function service(){
+
+        return view('frontend.services');
+    }
+
+    public function portfolio(){
+
+        return view('frontend.portfolio');
+    }
+
+    public function blog(){
+
+        return view('frontend.blog');
+    }
+
+    public function contact(){
+
+        return view('frontend.contact');
+    }
+
+
+
+
+
+
 
     public function contact_register(Request $request){
         $data = $request->all();

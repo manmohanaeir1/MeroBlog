@@ -1,3 +1,6 @@
+@php
+$route  = Route::current()->getName();
+@endphp
 <header>
     <div id="sticky-header" class="menu__area transparent-header">
         <div class="container custom-container">
@@ -11,22 +14,22 @@
                             </div>
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">
-                                    <li class="active"><a href="{{route('frontend.home')}}">Home</a></li>
-                                    <li><a href="{{url('about')}}">About</a></li>
-                                    <li><a href="">Services</a></li>
-                                    <li class="menu-item-has-children"><a href="#">Portfolio</a>
+                                    <li class="{{ ($route ==  'frontend.home') ?  'active' : ''}}"><a href="{{route('frontend.home')}}">Home</a></li>
+                                    <li class="{{ ($route ==  'frontend.about') ?  'active' : ''}}" ><a href="{{route('frontend.about')}}">About</a></li>
+                                    <li class="{{ ($route ==  'frontend.service') ?  'active' : ''}}" ><a href="{{route('frontend.service')}}">Services</a></li>
+                                    <li class="{{ ($route ==  'frontend.portfolio') ?  'active' : ''}}"><a href="{{route('frontend.portfolio')}}">Portfolio</a>
                                         <ul class="sub-menu">
                                             <li><a href="portfolio.html">Portfolio</a></li>
                                             <li><a href="portfolio-details.html">Portfolio Details</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="#">Our Blog</a>
+                                    <li class="{{ ($route ==  'frontend.blog') ?  'active' : ''}}"><a href="{{route('frontend.blog')}}">Our Blog</a>
                                         <ul class="sub-menu">
                                             <li><a href="blog.html">Our News</a></li>
                                             <li><a href="blog-details.html">News Details</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">contact me</a></li>
+                                    <li class="{{ ($route ==  'frontend.contact') ?  'active' : ''}}" ><a href="{{route('frontend.contact')}}">contact me</a></li>
                                 </ul>
                             </div>
                             <div class="header__btn d-none d-md-block">
