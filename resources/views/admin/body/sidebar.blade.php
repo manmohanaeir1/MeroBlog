@@ -46,13 +46,20 @@
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                        
                         <i class="ri-slideshow-fill"></i>
-                        <span>Home Slide Setup</span>
+                        <span>Home Page Setup</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('home.slider')}}">Home Slide</a></li>
-
-
+                       <li><a href="{{route('home.slider')}}">Home Slide</a></li>
                     </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href=" ">  About Me</a></li>
+                     </ul>
+                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href=" ">  My Service</a></li>
+                     </ul>
+                     <ul class="sub-menu" aria-expanded="false">
+                        <li><a href=" ">  Client Feedback</a></li>
+                     </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

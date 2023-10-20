@@ -10,7 +10,7 @@ $route  = Route::current()->getName();
                     <div class="menu__wrap">
                         <nav class="menu__nav">
                             <div class="logo">
-                                <a href="{{url('home')}}" class="logo__black"><img src="{{asset('logo/logo.png')}}" alt="" height="60"></a>
+                                <a href="{{url('home')}}" class="logo__black"><img src="{{asset('logo/logo.png')}}" alt="" height="90"></a>
                             </div>
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">

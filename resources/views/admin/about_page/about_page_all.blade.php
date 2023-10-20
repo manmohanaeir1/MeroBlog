@@ -98,6 +98,21 @@ $order = $order+10;
                                 </div>
                             </div>  
 
+                            {{-- for multiple image --}}
+
+                            <div class="row mb-3">
+                                <label for="example-text-input" class="col-sm-2 col-form-label"> Multiple Image</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file"  id="multi_images" name="multi_images[]" multiple  required>
+                                  
+                                    <span class="text-danger">photo must be  px </span>
+
+                                    @error('multi_images')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
                             {{-- order --}}
 
                             <div class="row mb-3">

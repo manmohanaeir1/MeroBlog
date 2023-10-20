@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Models\About;
+use App\Models\AboutMultiImages;
 use Image;
 
 class AboutController extends Controller
@@ -44,6 +45,7 @@ class AboutController extends Controller
             'short_description' => 'required  ',
             'long_description' => 'required  ',
             'about_image' => 'required | mimes:jpg,jpeg,png,gif | max:2000 ',
+ 
         ];
 
         $msg = [
@@ -53,6 +55,7 @@ class AboutController extends Controller
             'long_description.required' => 'Long Description is required',
             'about_image.required' => 'Image is required',
             'about_image.mimes' => 'Image type is required',
+  
         ];
 
        $this->validate($request, $rules, $msg);
@@ -82,6 +85,27 @@ class AboutController extends Controller
            
         }
 
+        // for multiimage 
+
+        if($request->hasFile('multi_images')){
+            $files = $request->file('multi_images');
+            foreach($files as $file)
+            {
+                $imageName = time(). '_' . $file->getClientOriginalName();
+                $request['about_id'] = $about->id;
+                $request['images'] =  $imageName;
+                $file->move(public_path('upload/about/multi_images'), $imageName);
+                AboutMultiImages::create($request->all());
+        
+               
+                
+                
+            }
+
+           
+        }
+
+        
         // for order 
        
         // for status  from about model
@@ -94,6 +118,7 @@ class AboutController extends Controller
            
         $about->save();
 
+ 
         return redirect()->route('index.about')->with($notification);
     }
     /**

@@ -9,7 +9,9 @@ use App\Models\Contact;
 class FrontendController extends Controller
 {
     public function home(){
-        return view('frontend.index');
+        $aboutH = About::where('status', 1)->first();
+
+        return view('frontend.index', compact('aboutH'));
     }
  
     public function about(){

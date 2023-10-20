@@ -68,8 +68,8 @@ class HomeSliderController extends Controller
             @unlink(public_path('upload/home_slider/' .$slide_id->home_slider));
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             // auto make image ffolder 
-            
-            Image::make($image)->resize(636,852)->save('upload/home_slider/'.$name_gen);
+            // w/h
+            Image::make($image)->resize(1200,1000)->save('upload/home_slider/'.$name_gen);
 
             $save_url = 'upload/home_slider/'.$name_gen;
              

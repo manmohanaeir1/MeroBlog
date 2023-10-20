@@ -22,7 +22,7 @@ use App\Models\About;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('frontend.index');
 });
 
