@@ -21,6 +21,7 @@ use App\Models\About;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+ 
 
 Route::get('/home', function () {
     return view('frontend.index');
